@@ -70,8 +70,8 @@
       "id": 13,
       "voter_name": "Obito",
       "paslon": {
-        "id": 15,
-        "name": "Rebbecca Eltra v2.1",
+        "id": 2,
+        "name": "Rebbecca Eltra",
         "visi": "merebut isekai dari pemerintahan dunia"
       }
     },
@@ -79,8 +79,8 @@
       "id": 14,
       "voter_name": "Newha",
       "paslon": {
-        "id": 15,
-        "name": "Rebbecca Eltra v2.1",
+        "id": 2,
+        "name": "Rebbecca Eltra",
         "visi": "merebut isekai dari pemerintahan dunia"
       }
     },
@@ -88,8 +88,8 @@
       "id": 15,
       "voter_name": "Byakuya",
       "paslon": {
-        "id": 15,
-        "name": "Rebbecca Eltra v2.1",
+        "id": 2,
+        "name": "Rebbecca Eltra",
         "visi": "merebut isekai dari pemerintahan dunia"
       }
     }
@@ -110,5 +110,25 @@
         "updated_at": "2023-09-23T18:10:56.082+07:00"
       }
     ]
-  }
+  },
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "email": "admin@gmail.com",
+      "password": "admin123"
+    },
+    {
+      "id": 2,
+      "username": "admin2",
+      "email": "admin2@gmail.com",
+      "password": "admin123"
+    },
+    {
+      "username": "rizkyf06",
+      "email": "rizkyfauzi132@gmail.com",
+      "password": "qwerty",
+      "id": 3
+    }
+  ]
 }

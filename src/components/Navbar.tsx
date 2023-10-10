@@ -1,7 +1,20 @@
-// import React from "react";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  // const [isUser, setIsUser] = useState(null);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // setIsUser(JSON.parse(localStorage.getItem("user")));
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login");
+  };
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -24,15 +37,18 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
+            <li className="my-3">
               <Link to="/">Home</Link>
             </li>
-            <li>
+            <li className="mb-3">
               <Link to="/partai">Partai</Link>
             </li>
             <li>
+              <Link to="/paslon">Paslon</Link>
+            </li>
+            <li className="my-3">
               <Link to="/voter">Voter</Link>
             </li>
           </ul>
@@ -44,16 +60,45 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar-end">
-        <Link to="/login">
-          <button className="btn btn-ghost rounded-md font-semibold ">
-            Login
+        {/* LOGIN */}
+        {/* <Link to="/login">
+          <button className="btn btn-ghost rounded-md mx-5 font-semibold text-white bg-red-500">
+            Masuk
           </button>
-        </Link>
-        <Link to="/sign-up">
-          <button className="btn btn-ghost rounded-md mx-5 font-semibold text-white bg-red-400">
-            SignUp
+        </Link> */}
+        {/* <Link to="/sign-up">
+          <button className="btn btn-ghost rounded-md mx-5 font-semibold text-white bg-red-500">
+            Daftar
           </button>
-        </Link>
+        </Link> */}
+        {/* End Login */}
+
+        {/* IsLogin */}
+        <h3 className="mr-4">Rizky Fauzi</h3>
+        <div className="dropdown dropdown-hover mr-14">
+          <div className="avatar h-[36px] w-[36px] align-center">
+            <div>
+              <img
+                src="/assets/avatar.jpg"
+                tabIndex={0}
+                className="rounded-full object-cover"
+                alt="Avatar"
+              />
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-24 mt-10"
+            >
+              <li>
+                <Link to="/profile">Profile</Link>
+              </li>
+              <li>
+                <button onClick={handleLogout}>Logout</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+        {/* END */}
       </div>
     </div>
   );

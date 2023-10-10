@@ -24,106 +24,6 @@ interface VoterObj {
   };
 }
 
-// const DataPaslon = {
-//   code: 200,
-//   data: [
-//     {
-//       id: 1,
-//       name: "Jhon doe",
-//       visi: "merebut isekai dari pemerintahan dunia",
-//       party: [
-//         {
-//           id: 1,
-//           name: "Wota",
-//         },
-//         {
-//           id: 3,
-//           name: "Wibooo",
-//         },
-//       ],
-//       created_at: "2023-09-23T18:11:54.223+07:00",
-//       updated_at: "2023-09-23T18:11:54.223+07:00",
-//     },
-//     {
-//       id: 2,
-//       name: "Rebbecca Eltra",
-//       visi: "merebut isekai dari pemerintahan dunia",
-//       party: [
-//         {
-//           id: 2,
-//           name: "Nusantara United",
-//         },
-//         {
-//           id: 3,
-//           name: "Muhammadiah City",
-//         },
-//       ],
-//       created_at: "2023-09-23T19:18:26.666+07:00",
-//       updated_at: "2023-09-23T19:18:26.666+07:00",
-//     },
-//   ],
-// };
-
-// const DataVotes = {
-//   code: 200,
-//   data: [
-//     {
-//       id: 8,
-//       voter_name: "Dandi",
-//       paslon: {
-//         id: 1,
-//         name: "Jhon doe",
-//         visi: "merebut isekai dari pemerintahan dunia",
-//       },
-//     },
-//     {
-//       id: 9,
-//       voter_name: "Dandi",
-//       paslon: {
-//         id: 1,
-//         name: "Jhon doe",
-//         visi: "merebut isekai dari pemerintahan dunia",
-//       },
-//     },
-//     {
-//       id: 10,
-//       voter_name: "Dandi",
-//       paslon: {
-//         id: 1,
-//         name: "Jhon doe",
-//         visi: "merebut isekai dari pemerintahan dunia",
-//       },
-//     },
-//     {
-//       id: 13,
-//       voter_name: "Obito",
-//       paslon: {
-//         id: 15,
-//         name: "Rebbecca Eltra v2.1",
-//         visi: "merebut isekai dari pemerintahan dunia",
-//       },
-//     },
-//     {
-//       id: 14,
-//       voter_name: "Newha",
-//       paslon: {
-//         id: 15,
-//         name: "Rebbecca Eltra v2.1",
-//         visi: "merebut isekai dari pemerintahan dunia",
-//       },
-//     },
-//     {
-//       id: 15,
-//       voter_name: "Byakuya",
-//       paslon: {
-//         id: 15,
-//         name: "Rebbecca Eltra v2.1",
-//         visi: "merebut isekai dari pemerintahan dunia",
-//       },
-//     },
-//   ],
-// };
-
 const Home = () => {
   //   const [selectedPaslon, setSelectedPaslon] = useState<number | null>();
   const [selectedPaslon, setSelectedPaslon] = useState<string>("");
@@ -174,17 +74,16 @@ const Home = () => {
   //           },
   //         };
 
-  //         const body = JSON.stringify({
+  //         let body = JSON.stringify({
   //           paslon_id: selectedPaslon,
   //           voter_name: nameVoter,
   //         });
 
-  //         const response = await API.post("/votes", body, config);
+  //         const response = await API.post("/vote", body, config);
   //         console.log(response);
 
   //         setNameVoter("");
-  //         // setSelectedPaslon(null);
-  //         setSelectedPaslon("");
+  //         setSelectedPaslon(null);
   //         paslonRefetch();
   //         votesRefecth();
   //       } catch (error) {
@@ -295,12 +194,17 @@ const Home = () => {
                   return (
                     <li key={paslon?.id}>
                       <span className="my-5 text-white text-[20px] font-bold">
-                        {paslon?.name} : {countVotes[paslon?.id]}
+                        {paslon?.name} :{" "}
                       </span>
-                      {/* <span className="countdown">
-                       
-                        {/* <span style={{ "--value":  }}></span> */}
-                      {/* </span>  */}
+                      <span className="countdown">
+                        <span
+                          style={
+                            {
+                              "--value": countVotes[paslon?.id],
+                            } as React.CSSProperties
+                          }
+                        ></span>
+                      </span>
                     </li>
                   );
                 })}

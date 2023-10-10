@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-image: url("https://cdn.medcom.id/dynamic/content/2023/07/26/1594762/igIb57uQfG.jpg?w=700");
+  background-image: url("/public/assets/background-body.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;

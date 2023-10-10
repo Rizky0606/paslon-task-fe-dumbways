@@ -5,13 +5,11 @@ import { useQuery } from "react-query";
 interface DataPartai {
   id: number;
   name: string;
-  created_at: string;
-  updated_at: string;
 }
+
 const Partai = () => {
   const [modal, setModal] = useState<boolean>(false);
-  const [paslonName, setPaslonName] = useState<string>("");
-  const [visiPaslon, setVisiPaslon] = useState<string>("");
+  const [partaiName, setPartaiName] = useState<string>("");
 
   const { data: partai, isLoading } = useQuery("partaiCache", async () => {
     const response = await API.get("/parties");
@@ -30,19 +28,13 @@ const Partai = () => {
     setModal(!modal);
   };
 
-  const handleChangePaslonName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPaslonName(e.target.value);
-  };
-
-  const handleChangeVisiPaslon = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setVisiPaslon(e.target.value);
+  const handleChangePartaiName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPartaiName(e.target.value);
   };
 
   const handleSubmitPaslon = () => {
-    alert(`Nama Paslon: ${paslonName}
-    Visi: ${visiPaslon}`);
-    setPaslonName("");
-    setVisiPaslon("");
+    alert(`Nama Partai: ${partaiName}`);
+    setPartaiName("");
     setModal(false);
   };
 
@@ -62,30 +54,18 @@ const Partai = () => {
           />
           <div className="modal">
             <div className="modal-box">
-              <h3 className="font-bold text-lg text-black">Tambah Paslon</h3>
+              <h3 className="font-bold text-lg text-black">Tambah Partai</h3>
               <form>
                 <div className="form-control">
                   <label htmlFor="" className="label font-semibold text-black">
-                    Nama Paslon
+                    Nama Partai
                   </label>
                   <input
                     type="text"
                     className="input w-full input-bordered text-black"
-                    placeholder="Nama Paslon"
-                    value={paslonName}
-                    onChange={handleChangePaslonName}
-                  />
-                </div>
-                <div className="form-control">
-                  <label htmlFor="" className="label font-semibold text-black">
-                    Visi
-                  </label>
-                  <input
-                    type="text"
-                    className="input w-full input-bordered text-black"
-                    placeholder="Visi Paslon"
-                    value={visiPaslon}
-                    onChange={handleChangeVisiPaslon}
+                    placeholder="Nama Partai"
+                    value={partaiName}
+                    onChange={handleChangePartaiName}
                   />
                 </div>
                 <div className="modal-action">
@@ -111,14 +91,14 @@ const Partai = () => {
         {/* END MODAL */}
         <h1 className="text-center text-[50px]">PARTAI</h1>
       </div>
-      <div className="grid grid-cols-2 my-10 rounded-md">
-        {partai?.map((item: DataPartai) => {
+      <div className="grid grid-cols-2 my-10">
+        {partai?.map((item: DataPartai, index: number) => {
           return (
             <div
               key={item.id}
-              className="bg-neutral-400 mx-5 text-center h-[200px]"
+              className="bg-[#445069] mx-5 text-center h-[200px] rounded-md"
             >
-              <h1 className="text-[72px]">{item.id}</h1>
+              <h1 className="text-[72px]">{index + 1}</h1>
               <h3 className="text-[30px]">{item.name}</h3>
             </div>
           );
